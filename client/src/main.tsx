@@ -5,16 +5,16 @@ import { ThemeProvider } from './components/theme-provider.tsx'
 import App from './app.tsx'
 import './index.css'
 import { BrowserRouter } from 'react-router'
-import { AuthProvider } from './lib/auth/auth-context.tsx'
+import { AuthProvider } from './lib/auth/auth-provider.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider>
-      <BrowserRouter>
-        <AuthProvider>
+      <AuthProvider>
+        <BrowserRouter>
           <App />
-        </AuthProvider>
-      </BrowserRouter>
+        </BrowserRouter>
+      </AuthProvider>
     </ThemeProvider>
   </StrictMode>
 )

@@ -9,10 +9,20 @@ import {
 import { Separator } from '@/components/ui/separator'
 
 import Logo from '@/assets/logo'
-import SignupForm from '@/components/signup/signup-form'
-import { Link } from 'react-router'
+import SignupForm from '@/components/auth/signup-form'
+import { Link, useNavigate } from 'react-router'
+import useAuth from '@/lib/auth/auth-provider'
+import { ROUTES } from '@/lib/constants/routes'
 
 const Signup = () => {
+  const { user, loading } = useAuth()
+  const navigate = useNavigate()
+
+  if (user && !loading) {
+    navigate(ROUTES.HOME)
+    return
+  }
+
   return (
     <div className="relative flex h-auto min-h-screen items-center justify-center overflow-x-hidden px-4 py-10 sm:px-6 lg:px-8">
       <Card className="z-1 w-full border-none shadow-md sm:max-w-lg">
@@ -32,7 +42,7 @@ const Signup = () => {
           <div className="space-y-4">
             <SignupForm />
 
-            <p className="text-muted-foreground text-center">
+            <p className="text-center text-muted-foreground">
               Already have an account?{' '}
               <Link
                 to="/login"

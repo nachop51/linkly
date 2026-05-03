@@ -7,15 +7,14 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 
 import { API } from '@/lib/constants/endpoints'
-import { useNavigate } from 'react-router'
-import { ROUTES } from '@/lib/constants/routes'
 import { api } from '@/lib/axios'
+import useAuth from '@/lib/auth/auth-provider'
 
 const SignupForm = () => {
+  const { updateUser } = useAuth()
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
-  const navigate = useNavigate()
 
   const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -29,10 +28,11 @@ const SignupForm = () => {
       return
     }
 
+    setIsLoading(true)
+    setError(null)
+
     try {
-      setIsLoading(true)
-      setError(null)
-      await api.post(API.AUTH.SIGNUP, {
+      const res = await api.post(API.AUTH.SIGNUP, {
         name: form.get('name') as string,
         handle: form.get('handle') as string,
         email: form.get('email') as string,
@@ -40,7 +40,7 @@ const SignupForm = () => {
         confirmPassword,
       })
 
-      navigate(ROUTES.LOGIN)
+      updateUser(res.data)
     } catch (err: any) {
       console.error(error)
       setError(err)

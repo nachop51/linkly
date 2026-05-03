@@ -9,15 +9,14 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { API } from '@/lib/constants/endpoints'
-import { useNavigate } from 'react-router'
-import { ROUTES } from '@/lib/constants/routes'
 import { api } from '@/lib/axios'
+import useAuth from '@/lib/auth/auth-provider'
 
 const LoginForm = () => {
+  const { updateUser } = useAuth()
   const [isVisible, setIsVisible] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
-  const navigate = useNavigate()
 
   const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -31,21 +30,16 @@ const LoginForm = () => {
       return
     }
 
-    try {
-      setIsLoading(true)
-      setError(null)
-      await api.post(
-        API.AUTH.LOGIN,
-        {
-          identifier,
-          password,
-        },
-        {
-          withCredentials: true,
-        }
-      )
+    setIsLoading(true)
+    setError(null)
 
-      navigate(ROUTES.HOME)
+    try {
+      const res = await api.post(API.AUTH.LOGIN, {
+        identifier,
+        password,
+      })
+
+      updateUser(res.data)
     } catch (err: any) {
       console.error(error)
       setError(err)
