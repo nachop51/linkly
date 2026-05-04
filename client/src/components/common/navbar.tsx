@@ -26,12 +26,12 @@ interface NavbarProps {
 
 const links = [
   {
-    title: 'Shortener',
-    href: '',
+    title: 'Home',
+    href: ROUTES.HOME,
   },
   {
     title: 'Dashboard',
-    href: '',
+    href: ROUTES.DASHBOARD,
   },
 ]
 
@@ -116,7 +116,7 @@ export default function Navbar({ user }: NavbarProps) {
           </DropdownMenuContent>
         </DropdownMenu>
 
-        <ul className="flex min-w-0 flex-1 items-center justify-center gap-8 font-medium text-muted-foreground lg:gap-16">
+        <ul className="flex flex-1 items-center justify-center gap-8 font-medium text-muted-foreground lg:gap-16">
           {leftLinks.map((link) => (
             <li
               key={`link-${link.title}`}
