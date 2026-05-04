@@ -6,6 +6,7 @@ import Signup from './pages/signup'
 import useAuth from './lib/auth/auth-provider'
 import ProtectRoute from './lib/auth/protect-route'
 import Navbar from './components/common/navbar'
+import Footer from './components/common/footer'
 
 export function App() {
   const { user, loading } = useAuth()
@@ -25,6 +26,8 @@ export function App() {
         <Route path={ROUTES.LOGIN} element={<Login />} />
         <Route path={ROUTES.SIGNUP} element={<Signup />} />
       </Routes>
+
+      <Footer />
     </ProtectRoute>
   )
 }

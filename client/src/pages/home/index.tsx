@@ -1,3 +1,9 @@
+import PageLayout from '@/components/common/page-layout'
+
 export default function Home() {
-  return <div>Home</div>
+  return (
+    <PageLayout>
+      <h1>Shortener</h1>
+    </PageLayout>
+  )
 }
