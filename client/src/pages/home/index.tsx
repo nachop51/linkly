@@ -7,7 +7,6 @@ export default function Home() {
   const exampleLinks = [
     'https://github.com/trending',
     'https://www.notion.so/templates',
-    'https://www.figma.com/community',
     'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
   ]
 
@@ -26,16 +25,15 @@ export default function Home() {
   return (
     <PageLayout>
       <div className="mx-auto flex w-full max-w-5xl flex-col items-center justify-center py-10">
-        <section className="w-full max-w-2xl rounded-2xl border border-border/60 bg-card/70 p-6 shadow-lg backdrop-blur-sm md:p-8">
-          <div className="mb-6 space-y-2 text-center">
-            <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-              Shorten links with style
-            </h1>
-            <p className="text-sm text-muted-foreground md:text-base">
-              Paste your URL, customize it and share it in seconds.
-            </p>
-          </div>
-
+        <header className="mb-6 w-full max-w-2xl space-y-2">
+          <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+            Shorten links
+          </h1>
+          <p className="text-sm text-muted-foreground md:text-base">
+            Paste your URL, customize it and share it in seconds
+          </p>
+        </header>
+        <section className="w-full max-w-2xl border border-border/60 bg-card/70 p-6 shadow-lg backdrop-blur-sm md:p-8">
           <ShortenForm />
 
           <div className="mt-6 border-t border-border/60 pt-5">
