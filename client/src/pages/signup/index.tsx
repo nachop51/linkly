@@ -8,7 +8,7 @@ import {
 } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 
-import Logo from '@/assets/logo'
+import LinklyLogo from '@/assets/logo'
 import SignupForm from '@/components/auth/signup-form'
 import { Link, useNavigate } from 'react-router'
 import useAuth from '@/lib/auth/auth-provider'
@@ -27,7 +27,7 @@ const Signup = () => {
     <div className="relative flex h-auto min-h-screen items-center justify-center overflow-x-hidden px-4 py-10 sm:px-6 lg:px-8">
       <Card className="z-1 w-full border-none shadow-md sm:max-w-lg">
         <CardHeader className="gap-6">
-          <Logo className="gap-3" />
+          <LinklyLogo className="gap-3 text-foreground" width={60} />
 
           <div>
             <CardTitle className="mb-1.5 text-2xl">Sign up to Linkly</CardTitle>
