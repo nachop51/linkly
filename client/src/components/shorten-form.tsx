@@ -76,7 +76,7 @@ export default function ShortenForm() {
           onValueChange={(value) =>
             setVisibility(value as 'public' | 'private')
           }
-          className="flex items-center gap-4"
+          className="flex items-center gap-4 [&_label]:cursor-pointer"
         >
           <div className="flex items-center gap-2">
             <RadioGroupItem value="public" id="public" />

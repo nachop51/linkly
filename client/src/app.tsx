@@ -14,22 +14,29 @@ export function App() {
 
   return (
     <ProtectRoute>
-      {loading && (
-        <p className="grid h-screen w-screen place-items-center bg-black">
-          Loading...
-        </p>
-      )}
+      <div className="relative min-h-screen overflow-x-hidden bg-white">
+        <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-sky-500/35 via-sky-200/10 to-transparent" />
+        {loading && (
+          <p className="grid h-screen w-screen place-items-center bg-black">
+            Loading...
+          </p>
+        )}
 
-      <Navbar user={user} />
+        <div className="relative z-10 flex min-h-screen flex-col">
+          <Navbar user={user} />
 
-      <Routes>
-        <Route index element={<Home />} />
-        <Route path={ROUTES.LOGIN} element={<Login />} />
-        <Route path={ROUTES.SIGNUP} element={<Signup />} />
-        <Route path={ROUTES.DASHBOARD} element={<Dashboard />} />
-      </Routes>
+          <main className="flex-1">
+            <Routes>
+              <Route index element={<Home />} />
+              <Route path={ROUTES.LOGIN} element={<Login />} />
+              <Route path={ROUTES.SIGNUP} element={<Signup />} />
+              <Route path={ROUTES.DASHBOARD} element={<Dashboard />} />
+            </Routes>
+          </main>
 
-      <Footer />
+          <Footer />
+        </div>
+      </div>
     </ProtectRoute>
   )
 }

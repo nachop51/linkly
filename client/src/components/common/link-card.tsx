@@ -219,7 +219,7 @@ const LinkCard = ({
             </div>
           </CardFooter>
         </Card>
-        <div className="blob pointer-events-none absolute top-0 left-0 size-20 rounded-full bg-sky-600/60 opacity-0 blur-2xl transition-all duration-300 ease-in-out dark:bg-sky-400/60" />
+        <div className="blob pointer-events-none absolute top-0 left-0 size-20 rounded-full bg-sky-600/40 opacity-0 blur-3xl transition-all duration-300 ease-in-out dark:bg-sky-400/60" />
         <div className="fake-blob pointer-events-none absolute top-0 left-0 size-20 rounded-full" />
       </div>
     </div>

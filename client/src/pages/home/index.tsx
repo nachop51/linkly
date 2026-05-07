@@ -33,7 +33,7 @@ export default function Home() {
             Paste your URL, customize it and share it in seconds
           </p>
         </header>
-        <section className="w-full max-w-2xl border border-border/60 bg-card/70 p-6 shadow-lg backdrop-blur-sm md:p-8">
+        <section className="w-full max-w-2xl border border-border/60 bg-card p-6 shadow-lg backdrop-blur-sm md:p-8">
           <ShortenForm />
 
           <div className="mt-6 border-t border-border/60 pt-5">

@@ -4,8 +4,8 @@ export default function PageLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="relative flex h-auto min-h-[calc(100dvh-65px-69px)] items-center justify-center overflow-x-hidden px-4 py-10 sm:px-6 lg:px-8">
-      {children}
+    <div className="flex h-full min-h-full items-center justify-center overflow-x-hidden px-4 py-10 sm:px-6 lg:px-8">
+      <div className="w-full">{children}</div>
     </div>
   )
 }
