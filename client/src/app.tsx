@@ -7,6 +7,7 @@ import useAuth from './lib/auth/auth-provider'
 import ProtectRoute from './lib/auth/protect-route'
 import Navbar from './components/common/navbar'
 import Footer from './components/common/footer'
+import Dashboard from './pages/dashboard'
 
 export function App() {
   const { user, loading } = useAuth()
@@ -25,6 +26,7 @@ export function App() {
         <Route index element={<Home />} />
         <Route path={ROUTES.LOGIN} element={<Login />} />
         <Route path={ROUTES.SIGNUP} element={<Signup />} />
+        <Route path={ROUTES.DASHBOARD} element={<Dashboard />} />
       </Routes>
 
       <Footer />

@@ -10,6 +10,7 @@ import { Separator } from '@/components/ui/separator'
 
 import LinklyLogo from '@/assets/logo'
 import SignupForm from '@/components/auth/signup-form'
+import { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router'
 import useAuth from '@/lib/auth/auth-provider'
 import { ROUTES } from '@/lib/constants/routes'
@@ -18,10 +19,13 @@ const Signup = () => {
   const { user, loading } = useAuth()
   const navigate = useNavigate()
 
-  if (user && !loading) {
-    navigate(ROUTES.HOME)
-    return
-  }
+  useEffect(() => {
+    if (user && !loading) {
+      navigate(ROUTES.HOME, { replace: true })
+    }
+  }, [user, loading, navigate])
+
+  if (user && !loading) return null
 
   return (
     <div className="relative flex h-auto min-h-screen items-center justify-center overflow-x-hidden px-4 py-10 sm:px-6 lg:px-8">

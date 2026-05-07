@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from 'react-router'
+import { Navigate, useLocation } from 'react-router'
 import useAuth from './auth-provider'
 import { ROUTES } from '../constants/routes'
 
@@ -10,12 +10,10 @@ export default function ProtectRoute({
   children: React.ReactNode
 }) {
   const { user, loading } = useAuth()
-  const navigate = useNavigate()
   const location = useLocation()
 
   if (!loading && !user && !unprotectedRoutes.includes(location.pathname)) {
-    navigate(ROUTES.LOGIN, { replace: true })
-    return
+    return <Navigate to={ROUTES.LOGIN} replace />
   }
 
   return children
